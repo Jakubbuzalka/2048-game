@@ -1,24 +1,14 @@
-import numpy
-import math
-import random
 import sys
 import os
+import math
 sys.path.append(os.path.abspath("D:\\Miacik\\Projects\\2048-game\\lib"))
-from sanitize import *
-from helper import *
+from sanitize import sanitizex
+from helper import delete
 
-#global variables
-board = [
-    [1,0,2,1],
-    [0,4,5,4],
-    [1,2,6,0],
-    [1,2,5,4]
-]
-
+#variables
 powers_of_two = [math.pow(2, i) for i in range(12)]
 
-
-
+#functions
 def moveXaxis(board):
     new_board = sanitizex(board, 'right')
     for i in range(len(new_board)):
@@ -29,5 +19,3 @@ def moveXaxis(board):
 
     return new_board
 
-
-print(numpy.matrix(moveXaxis(board)))

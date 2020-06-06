@@ -1,16 +1,12 @@
-import numpy
-
-board = [
-    [0,1,0,0],
-    [0,4,5,4],
-    [1,2,6,0],
-    [1,2,5,4]
-]
-
+import math
+import sys
+import os
+sys.path.append(os.path.abspath("D:\\Miacik\\Projects\\2048-game\\lib"))
+import helper
 
 def sanitizex(board, way):
     """ 
-    Function used to de-zero a list and append them in a way
+    Function used to de-zero a list and append zeros in a horizontal axis in right or left
     """
     cache=[]
     result=[
@@ -24,9 +20,6 @@ def sanitizex(board, way):
         for j in range(len(board)):
             if(board[i][j] != 0):
                 cache.append((board[i][j], i, j))
-
-
-    print(cache)
 
     for res in result:
         index = result.index(res)
@@ -51,5 +44,53 @@ def sanitizex(board, way):
     else:
         raise Exception("Choose right type, left or right !")
     
-print(numpy.matrix(sanitizex(board, "right")))
+def sanitizey(board, way):
+    """
+    Function used to de-zero a list in a vertical axis and insert zeros back in position
+    """
+    
+    vertical=[]
+    cache = []
+    new_board = [
+        [],
+        [],
+        [],
+        []
+    ]
+
+    vertical = helper.turn(board)
+    
+
+    for i in range(len(vertical)):
+        for j in range(len(vertical)):
+            if(vertical[i][j] != 0):
+                cache.append((vertical[i][j], i, j))
+
+    for nu in new_board:
+        index = new_board.index(nu)
+        for i in range(len(cache)):
+            if(index == cache[i][1]):
+                nu.append(cache[i][0])
+
+    if(way == "up"):
+
+        for nu in new_board:
+            while len(nu) != 4:
+                nu.append(0)
+        return new_board
+
+    elif(way == "down"):
+
+        for nu in new_board:
+            while len(nu) != 4:
+                nu.insert(0,0)
+        return new_board
+
+    else:
+        raise Exception("Choose right type, up or down !")
+    
+
+    return helper.turn(new_board)
+            
+
 
