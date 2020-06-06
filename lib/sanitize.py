@@ -1,3 +1,4 @@
+import numpy
 
 board = [
     [0,1,0,0],
@@ -50,6 +51,5 @@ def sanitizex(board, way):
     else:
         raise Exception("Choose right type, left or right !")
     
-print(sanitizex(board, "right"))   
-
+print(numpy.matrix(sanitizex(board, "right")))
 

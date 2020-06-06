@@ -9,7 +9,7 @@ from helper import *
 
 #global variables
 board = [
-    [0,1,0,0],
+    [1,0,2,1],
     [0,4,5,4],
     [1,2,6,0],
     [1,2,5,4]
@@ -27,8 +27,7 @@ def moveXaxis(board):
                 new_board[i][j+1] *= 2
                 delete(i,j,new_board)
 
-    board = new_board
+    return new_board
 
 
-moveXaxis(board)
-print(board)
+print(numpy.matrix(moveXaxis(board)))
