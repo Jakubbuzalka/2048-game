@@ -65,12 +65,12 @@ def sanitizey(board, way):
         for j in range(len(vertical)):
             if(vertical[i][j] != 0):
                 cache.append((vertical[i][j], i, j))
-
-    for nu in new_board:
-        index = new_board.index(nu)
+                
+                
+    for k in range(len(vertical)):
         for i in range(len(cache)):
-            if(index == cache[i][1]):
-                nu.append(cache[i][0])
+            if(k == cache[i][1]):
+                new_board[k].append(cache[i][0])
 
     if(way == "up"):
 
@@ -83,7 +83,7 @@ def sanitizey(board, way):
 
         for nu in new_board:
             while len(nu) != 4:
-                nu.insert(0,0)
+                nu.insert(0, 0)
         return helper.turn(new_board)
 
     else:
