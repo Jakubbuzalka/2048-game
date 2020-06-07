@@ -77,20 +77,20 @@ def sanitizey(board, way):
         for nu in new_board:
             while len(nu) != 4:
                 nu.append(0)
-        return new_board
+        return helper.turn(new_board)
 
     elif(way == "down"):
 
         for nu in new_board:
             while len(nu) != 4:
                 nu.insert(0,0)
-        return new_board
+        return helper.turn(new_board)
 
     else:
         raise Exception("Choose right type, up or down !")
     
 
-    return helper.turn(new_board)
+
             
 
 

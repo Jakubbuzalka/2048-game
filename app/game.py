@@ -5,7 +5,7 @@ import os
 sys.path.append(os.path.abspath("D:\\Miacik\\Projects\\2048-game\\lib"))
 from sanitize import *
 from helper import *
-from movement import moveXaxis
+from movement import moveXaxis, moveYaxis
 
 #variables
 board = [
@@ -16,4 +16,4 @@ board = [
 ]
 
 
-print(numpy.matrix(moveXaxis(board)))
+print(numpy.matrix(moveYaxis(board, "down")))
