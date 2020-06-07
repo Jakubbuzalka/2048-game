@@ -21,11 +21,10 @@ def sanitizex(board, way):
             if(board[i][j] != 0):
                 cache.append((board[i][j], i, j))
 
-    for res in result:
-        index = result.index(res)
+    for i in range(len(result)):
         for k in range(len(cache)):
-            if(index == cache[k][1]):
-                res.append(cache[k][0])
+            if(i == cache[k][1]):
+                result[i].append(cache[k][0])
                 
     if(way == "left"):
 
@@ -48,8 +47,7 @@ def sanitizey(board, way):
     """
     Function used to de-zero a list in a vertical axis and insert zeros back in position
     """
-    
-    vertical=[]
+
     cache = []
     new_board = [
         [],
@@ -57,7 +55,6 @@ def sanitizey(board, way):
         [],
         []
     ]
-
     vertical = helper.turn(board)
     
 

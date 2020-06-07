@@ -85,6 +85,7 @@ while True:
     elif(inp == "D" or inp == "down"):
         board = moveYaxis(board, "down")
     elif(inp == "E"):
+        print("Ok, bye!")
         break
     else:
         print("Enter valid move !")
