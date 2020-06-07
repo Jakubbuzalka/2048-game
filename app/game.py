@@ -3,7 +3,6 @@ import random
 import sys
 import os
 from time import sleep
-sys.path.append(os.path.abspath("D:\\Miacik\\Projects\\2048-game\\lib"))
 from movement import moveXaxis, moveYaxis
 from helper import plot
 
