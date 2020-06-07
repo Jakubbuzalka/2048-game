@@ -17,3 +17,7 @@ def turn(board):
             temp[i][j] = board[j][i]
 
     return temp
+
+def plot(x,y,board, val):
+    if(board[x][y] == 0):
+        board[x][y] = val
